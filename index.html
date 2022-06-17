@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Countdown</h1>
+    <button>Start counter</button>
+    <div>Count here down from 10 to 0</div>
+
+
+    <script>
+
+        const maxValue = 10;
+        let currentValue;
+        const button = document.querySelector("button");
+        const countdownText = document.querySelector("div");
+
+        button.addEventListener("click",function(){
+            button.setAttribute("disabled", true);
+            currentValue = maxValue;
+            Countdown();
+        })
+
+        function Countdown(){
+
+            if(currentValue === 10){
+                countdownText.innerHTML = currentValue;
+            }
+            else {
+                countdownText.innerHTML = "0" + currentValue;
+            }
+            
+            if(currentValue > 0){
+                currentValue = currentValue - 1;
+                setTimeout(Countdown,1000);             
+            }
+            else if(currentValue <= 0){
+                countdownText.innerHTML = maxValue;
+                button.removeAttribute("disabled");
+                clearTimeout();
+            }
+        }
+
+
+// Пожалуйста, интегрируйте обратный отсчет в предоставленную HTML-страницу.
+// Счетчик запускается при нажатии кнопки и считает от 10 каждую секунду, пока не достигнет 0. Когда он достигает 0, он останавливается.
+// Потом можно снова начать...
+// Отключите кнопку во время обратного отсчета.
+// Пожалуйста, отображайте числа в 2 цифры всегда (начальный ноль, где применимо)
+// Не используйте сторонние библиотеки.
+// Поместите весь код в файл index.html (внешние ссылки не допускаются).
+
+    </script>
+</body>
+</html>
